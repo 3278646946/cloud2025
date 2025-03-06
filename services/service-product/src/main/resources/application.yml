@@ -7,3 +7,6 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+      config:
+        import-check:
+          enabled: false      # 关闭nacos配置检查，若是没有关闭，又导入了nacos配置中心的包，则会报错

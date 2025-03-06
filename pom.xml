@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>services</module>
+        <module>test</module>
+        <module>model</module>
     </modules>
     <groupId>com.atguigu</groupId>
     <artifactId>cloud2025</artifactId>
