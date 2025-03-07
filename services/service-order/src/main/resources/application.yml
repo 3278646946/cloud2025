@@ -1,6 +1,9 @@
 server:
   port: 8000
 spring:
+  profiles:
+    active: prod
+    include: feign
   application:
     name: service-order
   cloud:
@@ -16,6 +19,12 @@ spring:
       - nacos:common.yml?group=order      # 指定 Nacos 的 DataId和group
       - nacos:database.yml?group=order    # 指定 Nacos 的 DataId和group
 
+
+
 order:
   timeout: 60min
   await-time: 10d
+
+logging:
+  level:
+    com.atguigu.order.feign: debug

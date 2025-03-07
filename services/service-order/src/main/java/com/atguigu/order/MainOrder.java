@@ -10,6 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 import java.util.concurrent.Executor;
@@ -23,6 +24,7 @@ import java.util.concurrent.Executors;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients  //开启feign远程调用功能
 public class MainOrder{
 
     @Value("${server.port}")

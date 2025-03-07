@@ -1,5 +1,6 @@
 package com.atguigu.order.service.impl;
 
+import com.atguigu.order.feign.ProductFeignClient;
 import com.atguigu.order.service.OrderService;
 import com.atguiu.order.bean.Order;
 import com.atguiu.product.bean.Product;
@@ -35,9 +36,17 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private ProductFeignClient productFeignClient;
+
     @Override
     public Order createOrder(Long userId, Long productId) {
-        Product productFromRemote = getProductFromRemoteLoadBalancerClient(productId);
+
+        //使用负载均衡去远程调用产品微服务模块
+        //Product productFromRemote = getProductFromRemoteLoadBalancerClient(productId);
+
+        //使用FeignClient 去远程调用产品微服务模块
+        Product productFromRemote = productFeignClient.getProductInfo(productId);
 
         Order order = new Order();
         order.setOrderId(1L);

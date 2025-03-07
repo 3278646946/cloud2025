@@ -11,27 +11,32 @@ import java.util.List;
  * @注释
  */
 public class Test {
-    public static int a = 10;
+    public  int a = 10;
+
     public static void main(String[] args) {
 
-        List<String> list = Arrays.asList("A", "B", "C");
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            String item = iterator.next();
-            System.out.println(item);
+       int[] arr =  new int[10];
+        for (int i : foreachTest(arr)) {
+            System.out.println(i);
         }
-
     }
 
+
+    public static int[] foreachTest(int[] arr) {
+        for (int i : arr) {
+            arr[i] = i;
+        }
+        return arr;
+    }
 
     public static void test(Object o) {
         System.out.println("test");
+//        a =  (Integer) o;
+
     }
-    public  void test1() {
-        System.out.println("test");
-        test2();
-        this.test2();
-        new Test().test2();
+    public  void test1(Object o) {
+        System.out.println("test1");
+        a = (Integer) o;
     }
     public  void test2() {
         System.out.println("test2");

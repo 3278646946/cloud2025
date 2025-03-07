@@ -5,6 +5,7 @@ import com.atguiu.product.bean.Product;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @version 1.0
@@ -21,6 +22,11 @@ public class ProductServiceImpl implements ProductService {
         product.setProductName("测试商品");
         product.setPrice(BigDecimal.valueOf(100));
         product.setNum(100);
+        try {
+            TimeUnit.SECONDS.sleep(63);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return product;
     }
 }
